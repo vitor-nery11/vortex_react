@@ -124,10 +124,6 @@ export default function DoctorRegisterForm({ onSubmitSuccess, onBack }) {
 
       {/* Header Form intro */}
       <div className="text-center mb-8 animate-fade-in">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-vortex-orange-50 border border-vortex-orange-200 text-vortex-orange-700 text-xs font-semibold mb-3">
-          <Sparkles className="w-3.5 h-3.5 text-vortex-orange" />
-          <span>Inscrição no Teste Piloto Vortex</span>
-        </div>
         <h1 className="text-2xl sm:text-3xl font-extrabold text-vortex-navy-900 tracking-tight">
           Formulário de Credenciamento
         </h1>
