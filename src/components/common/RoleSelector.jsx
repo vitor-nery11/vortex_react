@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Stethoscope, ArrowRight, ShieldCheck, Clock, HeartHandshake, CheckCircle2 } from 'lucide-react';
+import { User, Stethoscope, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Logo from './Logo';
 
 export default function RoleSelector({ onSelectRole }) {
@@ -129,22 +129,6 @@ export default function RoleSelector({ onSelectRole }) {
           </div>
         </div>
 
-      </div>
-
-      {/* Trust reassurance banner below cards */}
-      <div className="mt-10 sm:mt-14 max-w-2xl w-full text-center flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500">
-        <div className="flex items-center gap-2">
-          <ShieldCheck className="w-4 h-4 text-emerald-500" />
-          <span>Privacidade Garantida</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <Clock className="w-4 h-4 text-sky-500" />
-          <span>Retorno Rápido via WhatsApp</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <HeartHandshake className="w-4 h-4 text-vortex-orange" />
-          <span>Conexão Direta e Humanizada</span>
-        </div>
       </div>
     </div>
   );
