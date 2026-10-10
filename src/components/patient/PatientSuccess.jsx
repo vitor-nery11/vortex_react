@@ -121,20 +121,13 @@ export default function PatientSuccess({ data, onReset, onBackHome }) {
         </div>
 
         {/* Actions */}
-        <div className="pt-2 flex flex-col sm:flex-row gap-3">
+        <div className="pt-2">
           <button
             onClick={onReset}
-            className="flex-1 py-3.5 px-4 rounded-2xl bg-vortex-navy-900 hover:bg-vortex-navy-800 text-white font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2"
+            className="w-full py-3.5 px-4 rounded-2xl bg-vortex-navy-900 hover:bg-vortex-navy-800 text-white font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Fazer outra busca</span>
-          </button>
-
-          <button
-            onClick={onBackHome}
-            className="py-3.5 px-4 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition-all"
-          >
-            Voltar ao Início
           </button>
         </div>
 

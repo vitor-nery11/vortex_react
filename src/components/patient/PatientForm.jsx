@@ -202,17 +202,8 @@ const PatientForm = forwardRef(function PatientForm({ onSubmitSuccess, onBack },
   return (
     <div className="w-full max-w-md mx-auto py-4 px-3 sm:px-4 space-y-4 animate-fade-in">
       
-      {/* Navigation Top: Back Button & Step Tag */}
-      <div className="flex items-center justify-between px-1">
-        <button
-          type="button"
-          onClick={prevStep}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-vortex-navy-900 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>{activeStep === 1 ? 'Início' : 'Voltar'}</span>
-        </button>
-
+      {/* Navigation Top: Step Tag */}
+      <div className="flex items-center justify-end px-1">
         <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-vortex-orange-50 border border-orange-200/60 text-vortex-orange text-[11px] font-bold tracking-wide uppercase">
           <span className="w-1.5 h-1.5 rounded-full bg-vortex-orange animate-pulse" />
           Busca Inteligente em Minutos
