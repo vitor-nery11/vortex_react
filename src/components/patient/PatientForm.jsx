@@ -200,15 +200,7 @@ const PatientForm = forwardRef(function PatientForm({ onSubmitSuccess, onBack },
   };
 
   return (
-    <div className="w-full max-w-md mx-auto py-4 px-3 sm:px-4 space-y-4 animate-fade-in">
-      
-      {/* Navigation Top: Step Tag */}
-      <div className="flex items-center justify-end px-1">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-vortex-orange-50 border border-orange-200/60 text-vortex-orange text-[11px] font-bold tracking-wide uppercase">
-          <span className="w-1.5 h-1.5 rounded-full bg-vortex-orange animate-pulse" />
-          Busca Inteligente em Minutos
-        </div>
-      </div>
+    <div className="w-full max-w-md mx-auto py-2 px-3 sm:px-4 space-y-4 animate-fade-in">
 
       {/* Hero Headline & 5-Step Progress Bar */}
       <section className="px-2 pt-2 pb-1 text-left">

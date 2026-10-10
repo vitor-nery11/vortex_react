@@ -121,9 +121,11 @@ export default function App() {
         isPwaInstalled={isPwaInstalled}
       />
 
-      {/* Return Button Below Header */}
+      {/* Return & Sub-Header Bar Below Header */}
       {currentView !== 'selector' && (
-        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 pt-3 pb-0 animate-fade-in flex items-center justify-start">
+        <div className={`w-full mx-auto px-4 sm:px-6 pt-3 pb-0 animate-fade-in flex items-center justify-between ${
+          currentView === 'patient-form' ? 'max-w-md' : 'max-w-4xl'
+        }`}>
           <button
             type="button"
             onClick={handleGoBack}
@@ -133,6 +135,13 @@ export default function App() {
             <ArrowLeft className="w-4 h-4 text-vortex-navy-800" />
             <span>Voltar</span>
           </button>
+
+          {currentView === 'patient-form' && (
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-vortex-orange-50 border border-orange-200/60 text-vortex-orange text-[11px] font-bold tracking-wide uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-vortex-orange animate-pulse" />
+              <span>Busca Inteligente em Minutos</span>
+            </div>
+          )}
         </div>
       )}
 
