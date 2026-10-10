@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
 import RoleSelector from './components/common/RoleSelector';
@@ -10,6 +10,7 @@ import DoctorSuccess from './components/doctor/DoctorSuccess';
 import DoctorDashboard from './components/doctor/DoctorDashboard';
 import PwaInstallPrompt from './components/pwa/PwaInstallPrompt';
 import FaqModal from './components/common/FaqModal';
+import { ArrowLeft } from 'lucide-react';
 
 export default function App() {
   const [currentView, setCurrentView] = useState('selector');
@@ -17,6 +18,7 @@ export default function App() {
 
   const [patientData, setPatientData] = useState(null);
   const [doctorData, setDoctorData] = useState(null);
+  const patientFormRef = useRef(null);
 
   // PWA State & Modals
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -90,6 +92,24 @@ export default function App() {
     setView('doctor-dashboard');
   };
 
+  const handleGoBack = () => {
+    if (currentView === 'patient-form') {
+      if (patientFormRef.current && patientFormRef.current.prevStep) {
+        patientFormRef.current.prevStep();
+      } else {
+        setView('selector');
+      }
+    } else if (currentView === 'patient-success') {
+      setView('patient-form');
+    } else if (currentView === 'doctor-register') {
+      setView('doctor-landing');
+    } else if (currentView === 'doctor-dashboard' || currentView === 'doctor-success') {
+      setView('doctor-landing');
+    } else {
+      setView('selector');
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-vortex-orange selection:text-white">
       {/* Top Navbar */}
@@ -101,6 +121,21 @@ export default function App() {
         isPwaInstalled={isPwaInstalled}
       />
 
+      {/* Return Button Below Header */}
+      {currentView !== 'selector' && (
+        <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 pt-3 pb-0 animate-fade-in flex items-center justify-start">
+          <button
+            type="button"
+            onClick={handleGoBack}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold text-slate-600 hover:text-vortex-navy-900 bg-white hover:bg-slate-100 border border-slate-200 shadow-sm transition-all cursor-pointer active:scale-95"
+            title="Voltar à etapa anterior"
+          >
+            <ArrowLeft className="w-4 h-4 text-vortex-navy-800" />
+            <span>Voltar</span>
+          </button>
+        </div>
+      )}
+
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col items-center justify-center">
         {currentView === 'selector' && (
@@ -110,6 +145,7 @@ export default function App() {
         {/* --- FLUXO PACIENTE --- */}
         {currentView === 'patient-form' && (
           <PatientForm
+            ref={patientFormRef}
             onSubmitSuccess={handlePatientSubmit}
             onBack={() => setView('selector')}
           />

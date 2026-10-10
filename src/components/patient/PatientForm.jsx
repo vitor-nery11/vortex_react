@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { 
   User, 
   MapPin, 
@@ -21,7 +21,7 @@ import {
 import { POPULAR_SPECIALTIES, POPULAR_CITIES, formatPhone } from '../../data/mockData';
 import confetti from 'canvas-confetti';
 
-export default function PatientForm({ onSubmitSuccess, onBack }) {
+const PatientForm = forwardRef(function PatientForm({ onSubmitSuccess, onBack }, ref) {
   const [activeStep, setActiveStep] = useState(1); // 1, 2, 3, 4, 5
   
   const [formData, setFormData] = useState({
@@ -170,6 +170,11 @@ export default function PatientForm({ onSubmitSuccess, onBack }) {
       onBack();
     }
   };
+
+  useImperativeHandle(ref, () => ({
+    prevStep,
+    activeStep
+  }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -713,4 +718,6 @@ export default function PatientForm({ onSubmitSuccess, onBack }) {
       </form>
     </div>
   );
-}
+});
+
+export default PatientForm;
