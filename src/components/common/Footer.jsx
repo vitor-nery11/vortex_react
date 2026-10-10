@@ -7,9 +7,11 @@ export default function Footer({ setView }) {
       <div className="max-w-5xl mx-auto">
         {/* Bottom copyright & quick links */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col items-center md:items-start gap-2">
             <Logo size="xs" variant="dark" />
-            <span className="text-slate-500">| © {new Date().getFullYear()} Vortex Saúde Brasil. Todos os direitos reservados.</span>
+            <span className="text-slate-500 text-center md:text-left">
+              © {new Date().getFullYear()} Vortex Saúde Brasil. Todos os direitos reservados.
+            </span>
           </div>
 
           <div className="flex items-center gap-4 text-slate-400">
