@@ -10,8 +10,7 @@ import {
   Phone, 
   CheckCircle2, 
   HelpCircle, 
-  ArrowRight, 
-  ArrowLeft,
+  ArrowRight,
   Sparkles,
   Check
 } from 'lucide-react';
@@ -110,18 +109,6 @@ export default function DoctorRegisterForm({ onSubmitSuccess, onBack }) {
   return (
     <div className="w-full max-w-2xl mx-auto py-6 sm:py-10 px-4 sm:px-6">
       
-      {/* Back button */}
-      <div className="mb-4">
-        <button
-          type="button"
-          onClick={onBack}
-          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-vortex-navy-900 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Voltar para o login do médico</span>
-        </button>
-      </div>
-
       {/* Header Form intro */}
       <div className="text-center mb-8 animate-fade-in">
         <h1 className="text-2xl sm:text-3xl font-extrabold text-vortex-navy-900 tracking-tight">

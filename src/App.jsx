@@ -124,7 +124,11 @@ export default function App() {
       {/* Return & Sub-Header Bar Below Header */}
       {currentView !== 'selector' && (
         <div className={`w-full mx-auto px-4 sm:px-6 pt-3 pb-0 animate-fade-in flex items-center justify-between ${
-          currentView === 'patient-form' || currentView === 'doctor-landing' ? 'max-w-md' : 'max-w-4xl'
+          currentView === 'patient-form' || currentView === 'doctor-landing' 
+            ? 'max-w-md' 
+            : currentView === 'doctor-register' 
+              ? 'max-w-2xl' 
+              : 'max-w-4xl'
         }`}>
           <button
             type="button"
