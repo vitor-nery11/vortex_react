@@ -19,6 +19,7 @@ export default function App() {
   const [patientData, setPatientData] = useState(null);
   const [doctorData, setDoctorData] = useState(null);
   const patientFormRef = useRef(null);
+  const doctorRegisterFormRef = useRef(null);
 
   // PWA State & Modals
   const [deferredPrompt, setDeferredPrompt] = useState(null);
@@ -102,7 +103,11 @@ export default function App() {
     } else if (currentView === 'patient-success') {
       setView('patient-form');
     } else if (currentView === 'doctor-register') {
-      setView('doctor-landing');
+      if (doctorRegisterFormRef.current && doctorRegisterFormRef.current.prevStep) {
+        doctorRegisterFormRef.current.prevStep();
+      } else {
+        setView('doctor-landing');
+      }
     } else if (currentView === 'doctor-dashboard' || currentView === 'doctor-success') {
       setView('doctor-landing');
     } else {
@@ -124,11 +129,9 @@ export default function App() {
       {/* Return & Sub-Header Bar Below Header */}
       {currentView !== 'selector' && (
         <div className={`w-full mx-auto px-4 sm:px-6 pt-3 pb-0 animate-fade-in flex items-center justify-between ${
-          currentView === 'patient-form' || currentView === 'doctor-landing' 
+          currentView === 'patient-form' || currentView === 'doctor-landing' || currentView === 'doctor-register'
             ? 'max-w-md' 
-            : currentView === 'doctor-register' 
-              ? 'max-w-2xl' 
-              : 'max-w-4xl'
+            : 'max-w-4xl'
         }`}>
           <button
             type="button"
@@ -182,6 +185,7 @@ export default function App() {
 
         {currentView === 'doctor-register' && (
           <DoctorRegisterForm
+            ref={doctorRegisterFormRef}
             onSubmitSuccess={handleDoctorSubmit}
             onBack={() => setView('doctor-landing')}
           />
