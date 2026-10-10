@@ -118,7 +118,7 @@ export default function DoctorRegisterForm({ onSubmitSuccess, onBack }) {
           className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-vortex-navy-900 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Voltar para a apresentação</span>
+          <span>Voltar para o login do médico</span>
         </button>
       </div>
 
